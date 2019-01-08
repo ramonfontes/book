@@ -33,8 +33,8 @@ def topology():
     r1.cmd('ip route add to 192.168.0.1 via 192.168.0.100')
     sta1.cmd('iw dev sta1-wlan0 connect r1-ssid1')
     sta2.cmd('iw dev sta2-wlan0 connect r1-ssid2')
-    sta1.cmd('route add default gw 192.168.0.100')
-    sta2.cmd('route add default gw 192.168.1.100')
+    #sta1.cmd('route add default gw 192.168.0.100')
+    #sta2.cmd('route add default gw 192.168.1.100')
 
     info("*** Running CLI\n")
     CLI_wifi(net)
