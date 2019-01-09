@@ -40,20 +40,20 @@ def topology():
     ap1.start([])
     ap2.start([])
 
-    #sta1.cmd("ip link add link sta1-wlan0 name sta1-wlan0.10 type vlan id 10")
-    #sta2.cmd("ip link add link sta2-wlan0 name sta2-wlan0.10 type vlan id 10")
-    #sta3.cmd("ip link add link sta3-wlan0 name sta3-wlan0.20 type vlan id 20")
-    #sta4.cmd("ip link add link sta4-wlan0 name sta4-wlan0.20 type vlan id 20")
+    sta1.cmd("ip link add link sta1-wlan0 name sta1-wlan0.10 type vlan id 10")
+    sta2.cmd("ip link add link sta2-wlan0 name sta2-wlan0.10 type vlan id 10")
+    sta3.cmd("ip link add link sta3-wlan0 name sta3-wlan0.20 type vlan id 20")
+    sta4.cmd("ip link add link sta4-wlan0 name sta4-wlan0.20 type vlan id 20")
 
     sta1.cmd("route del -net 10.0.0.0 netmask 255.0.0.0")
     sta2.cmd("route del -net 10.0.0.0 netmask 255.0.0.0")
     sta3.cmd("route del -net 10.0.0.0 netmask 255.0.0.0")
     sta4.cmd("route del -net 10.0.0.0 netmask 255.0.0.0")
 
-    #sta1.cmd("ifconfig sta1-wlan0.10 10.0.0.1")
-    #sta2.cmd("ifconfig sta2-wlan0.10 10.0.0.2")
-    #sta3.cmd("ifconfig sta3-wlan0.20 10.0.0.3")
-    #sta4.cmd("ifconfig sta4-wlan0.20 10.0.0.4")
+    sta1.cmd("ifconfig sta1-wlan0.10 10.0.0.1")
+    sta2.cmd("ifconfig sta2-wlan0.10 10.0.0.2")
+    sta3.cmd("ifconfig sta3-wlan0.20 10.0.0.3")
+    sta4.cmd("ifconfig sta4-wlan0.20 10.0.0.4")
 
     info("*** Running CLI\n")
     CLI_wifi(net)
