@@ -16,7 +16,6 @@ def topology():
 
     info("*** Creating nodes\n")
     ap1 = net.addAccessPoint('ap1', ssid='new-ssid', mode='g', channel='1', position='10,10,0')
-    #ap2 = net.addAccessPoint('ap2', ssid='new-ssid', mode='g', channel='1', position='10,13,0')
     sta1 = net.addStation('sta1', position='10,20,0')
     c1 = net.addController('c1', controller=Controller)
 
@@ -28,7 +27,6 @@ def topology():
     net.addNAT().configDefault()
     c1.start()
     ap1.start([c1])
-    #ap2.start([c1])
 
     info("*** Running CLI\n")
     CLI_wifi(net)
