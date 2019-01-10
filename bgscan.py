@@ -1,15 +1,5 @@
 #!/usr/bin/python
 
-""" Handover example supported by bgscan (Background scanning) and wmediumd.
-
-ieee 802.11r can be enabled adding the parameters below:
-
-ieee80211r='yes'
-mobility_domain='a1b2'
-
-e.g. ap1 = net.addAccessPoint('ap1', ..., ieee80211r='yes',
-mobility_domain='a1b2',...)"""
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP

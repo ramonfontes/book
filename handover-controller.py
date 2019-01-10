@@ -1,15 +1,5 @@
 #!/usr/bin/python
 
-""" Handover example supported by bgscan (Background scanning) and wmediumd.
-
-ieee 802.11r can be enabled adding the parameters below:
-
-ieee80211r='yes'
-mobility_domain='a1b2'
-
-e.g. ap1 = net.addAccessPoint('ap1', ..., ieee80211r='yes',
-mobility_domain='a1b2',...)"""
-
 from mininet.node import RemoteController
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP
@@ -54,9 +44,6 @@ def topology():
     net.addLink(h2, ap2)
     net.addLink(h3, ap3)
 
-    #info("*** Setting bgscan\n")
-    #net.setBgscan(signal=-45, s_inverval=1, l_interval=5)
-
     net.plotGraph(min_x=-100, min_y=-100, max_x=200, max_y=200)
 
     info("*** Starting network\n")
@@ -70,8 +57,6 @@ def topology():
     sta2.cmd('wpa_cli -i sta2-wlan0 roam 00:00:00:00:00:01')
     sta1.cmd('./sta1_2.py &')
     sta2.cmd('./sta2_2.py &')
-    #sta1.cmdPrint('iw dev sta1-wlan0 interface add mon0 type monitor')
-    #sta1.cmdPrint('ifconfig mon0 up')
 
     info("*** Running CLI\n")
     CLI_wifi(net)

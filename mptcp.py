@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-"""MPTCP Demo"""
-
 from mininet.log import setLogLevel, info
 from mininet.node import Controller
 from mn_wifi.net import Mininet_wifi
@@ -10,16 +8,6 @@ import sys
 
 
 def topology(is_mptcp):
-
-    """
-          *ap1--.
-         *       .
-    sta1*        r1-h1
-        *        .
-         *      .
-          *ap2--
-    """
-
     "Create a network."
     net = Mininet_wifi( controller=Controller )
 

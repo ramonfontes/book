@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example creates a simple network topology with 1 AP and 2 stations'
-
 import sys
 
 from mininet.node import Controller
@@ -21,9 +19,11 @@ def topology():
     sta3 = net.addStation('sta3')
     sta4 = net.addStation('sta4')
     ap1 = net.addAccessPoint('ap1', ssid="ssid-ap1",
-                             mode="g", channel="5", failMode="standalone")
+                             mode="g", channel="5",
+                             failMode="standalone")
     ap2 = net.addAccessPoint('ap2', ssid="ssid-ap2",
-                             mode="g", channel="11", failMode="standalone")
+                             mode="g", channel="11",
+                             failMode="standalone")
 
     info("*** Configuring wifi nodes\n")
     net.configureWifiNodes()

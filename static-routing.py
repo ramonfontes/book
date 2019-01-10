@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example creates a simple network topology with 1 AP and 2 stations'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.cli import CLI_wifi
@@ -21,8 +19,10 @@ def topology():
     info("*** Configuring wifi nodes\n")
     net.configureWifiNodes()
 
-    r1.setMasterMode(intf='r1-wlan0', ssid='r1-ssid', channel='1', mode='n')
-    r2.setMasterMode(intf='r2-wlan0', ssid='r2-ssid', channel='1', mode='n')
+    r1.setMasterMode(intf='r1-wlan0', ssid='r1-ssid',
+                     channel='1', mode='n')
+    r2.setMasterMode(intf='r2-wlan0', ssid='r2-ssid',
+                     channel='1', mode='n')
 
     info("*** Creating Links\n")
     net.addLink(r1, r2)

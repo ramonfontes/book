@@ -1,12 +1,5 @@
 #!/usr/bin/python
 
-"""Sample file for SUMO
-
-***Requirements***:
-
-sumo
-sumo-gui"""
-
 import os
 
 from mininet.node import Controller
@@ -20,7 +13,6 @@ from mn_wifi.wmediumdConnector import interference
 
 
 def topology():
-
     "Create a network."
     net = Mininet_wifi(controller=Controller, accessPoint=UserAP,
                        link=wmediumd, wmediumd_mode=interference)

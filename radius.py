@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example shows how to work with Radius Server'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP
@@ -17,13 +15,17 @@ def topology():
                         link=wmediumd, wmediumd_mode=interference )
 
     info("*** Creating nodes\n")
-    sta1 = net.addStation( 'sta1', radius_passwd='sdnteam', encrypt='wpa2',
-                           radius_identity='joe', position='110,120,0' )
-    sta2 = net.addStation( 'sta2', radius_passwd='hello', encrypt='wpa2',
-                           radius_identity='bob', position='200,100,0' )
-    ap1 = net.addAccessPoint( 'ap1', ssid='simplewifi', authmode='8021x',
-                              mode='a', channel='36', encrypt='wpa2', position='150,100,0' )
-    c0 = net.addController('c0', controller=Controller, ip='127.0.0.1', port=6653 )
+    sta1 = net.addStation( 'sta1', radius_passwd='sdnteam',
+                           encrypt='wpa2', radius_identity='joe',
+                           position='110,120,0' )
+    sta2 = net.addStation( 'sta2', radius_passwd='hello',
+                           encrypt='wpa2', radius_identity='bob',
+                           position='200,100,0' )
+    ap1 = net.addAccessPoint( 'ap1', ssid='simplewifi',
+                              authmode='8021x', mode='a', channel='36',
+                              encrypt='wpa2', position='150,100,0' )
+    c0 = net.addController('c0', controller=Controller,
+                           ip='127.0.0.1', port=6653 )
 
     info("*** Configuring Propagation Model\n")
     net.propagationModel(model="logDistance", exp=3.5)

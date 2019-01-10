@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example creates a simple network topology with 1 AP and 2 stations'
-
 import sys
 
 from mininet.node import Controller, RemoteController
@@ -33,13 +31,13 @@ def topology(qos):
     c0.start()
     ap1.start([c0])
 
-    #h1.cmd('ethtool --offload h1-eth0 rx off tx off') 
-    #sta1.cmd('ethtool --offload sta1-wlan0 rx off tx off') 
-    #ap1.cmdPrint('ovs-vsctl set bridge ap1 datapath_type=netdev')
     if qos:
-        ap1.cmdPrint('ovs-ofctl -O OpenFlow13 add-meter ap1 \'meter=1,kbps,bands=type=drop,rate=5000\'')
-        ap1.cmdPrint('ovs-ofctl -O OpenFlow13 add-flow ap1 \'priority=1,in_port=1 action=meter:1,2\'')
-        ap1.cmdPrint('ovs-ofctl -O OpenFlow13 add-flow ap1 \'priority=1,in_port=2 action=meter:1,1\'')
+        ap1.cmdPrint('ovs-ofctl -O OpenFlow13 add-meter ap1 '
+                     '\'meter=1,kbps,bands=type=drop,rate=5000\'')
+        ap1.cmdPrint('ovs-ofctl -O OpenFlow13 add-flow ap1 '
+                     '\'priority=1,in_port=1 action=meter:1,2\'')
+        ap1.cmdPrint('ovs-ofctl -O OpenFlow13 add-flow ap1 '
+                     '\'priority=1,in_port=2 action=meter:1,1\'')
 
     info("*** Running CLI\n")
     CLI_wifi(net)

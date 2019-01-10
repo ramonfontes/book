@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-"Setting the position of Nodes with wmediumd to calculate the interference"
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.node import OVSKernelAP

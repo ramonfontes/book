@@ -1,10 +1,5 @@
 #!/usr/bin/python
 
-"""Code created to be presented with the paper titled:
-   "Rich Experimentation through Hybrid Physical-Virtual Software-Defined Wireless
-   Networking Emulation"
-   authors: Ramon dos Reis Fontes and Christian Esteve Rothenberg"""
-
 from mininet.log import setLogLevel, info
 from mininet.node import Controller
 from mn_wifi.node import OVSAP, physicalAP
@@ -15,17 +10,18 @@ from mn_wifi.wmediumdConnector import interference
 
 
 def topology():
-
     "Create a network."
     net = Mininet_wifi( controller=Controller )
 
     usbDongleIface = 'wlxf4f26d193319'
 
     info("*** Creating nodes\n")
-    sta1 = net.addStation('sta1', mac='00:00:00:00:00:01', ip='192.168.0.1/24', position='10,10,0')
-    phyap1 = net.addAccessPoint('phyap1', ssid='ssid-ap1', mode='g', channel='1', 
-			         position='50,50,0', phywlan=usbDongleIface,
-                                 cls=physicalAP)
+    sta1 = net.addStation('sta1', mac='00:00:00:00:00:01',
+                          ip='192.168.0.1/24', position='10,10,0')
+    phyap1 = net.addAccessPoint('phyap1', ssid='ssid-ap1',
+                                mode='g', channel='1',
+                                position='50,50,0', phywlan=usbDongleIface,
+                                cls=physicalAP)
     c0 = net.addController( 'c0' )
 
     info("*** Configuring Propagation Model\n")

@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example shows how to work with authentication'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP

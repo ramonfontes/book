@@ -11,7 +11,8 @@ def topology():
 
     info("*** Creating nodes\n")
     net.addStation('sta1', mac='00:00:00:00:00:02', ip='0/0', position='30,60,0')
-    ap1 = net.addAccessPoint('ap1', ssid='new-ssid', mode='g', channel='1', position='50,50,0', failMode='standalone')
+    ap1 = net.addAccessPoint('ap1', ssid='new-ssid', mode='g', channel='1',
+                             position='50,50,0', failMode='standalone')
     h1 = net.addHost('h1', ip='192.168.11.1/24', inNamespace=False)
 
     net.setPropagationModel(model="logDistance", exp=4.5)

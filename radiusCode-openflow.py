@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example shows how to work with Radius Server'
-
 from mininet.node import RemoteController, UserSwitch
 from mininet.log import setLogLevel, info
 from mn_wifi.node import UserAP
@@ -17,14 +15,18 @@ def topology():
     net = Mininet_wifi(link=wmediumd, wmediumd_mode=interference)
 
     info("*** Creating nodes\n")
-    net.addStation( 'sta1', ip='192.168.0.1', radius_passwd='sdnteam', encrypt='wpa2',
-                           radius_identity='joe', position='110,120,0' )
-    net.addStation( 'sta2', ip='192.168.0.2', radius_passwd='hello', encrypt='wpa2',
-                           radius_identity='bob', position='200,100,0' )
-    ap1 = net.addStation( 'ap1', ip='192.168.0.100', position='150,100,0' )
+    net.addStation( 'sta1', ip='192.168.0.1',
+                    radius_passwd='sdnteam', encrypt='wpa2',
+                    radius_identity='joe', position='110,120,0' )
+    net.addStation( 'sta2', ip='192.168.0.2',
+                    radius_passwd='hello', encrypt='wpa2',
+                    radius_identity='bob', position='200,100,0' )
+    ap1 = net.addStation( 'ap1', ip='192.168.0.100',
+                          position='150,100,0' )
     h1 = net.addHost('h1', ip='10.0.0.100/8')
     s1 = net.addSwitch('s1')
-    c0 = net.addController('c0', controller=RemoteController, ip='127.0.0.1', port=6653 )
+    c0 = net.addController('c0', controller=RemoteController,
+                           ip='127.0.0.1', port=6653 )
 
     info("*** Configuring Propagation Model\n")
     net.setPropagationModel(model="logDistance", exp=3.5)

@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example shows how to create multiple interfaces in stations'
-
 from __future__ import print_function
 import sys, os
 

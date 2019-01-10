@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'sflow-RT based code'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.link import wmediumd, mesh

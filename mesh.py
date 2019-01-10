@@ -1,14 +1,5 @@
 #!/usr/bin/python
 
-"""This example shows how to work in adhoc mode
-
-It is a full mesh network
-
-     .sta3.
-    .      .
-   .        .
-sta1 ----- sta2"""
-
 import sys
 
 from mininet.log import setLogLevel, info

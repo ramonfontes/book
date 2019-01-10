@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'Example for Handover'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.node import OVSKernelAP

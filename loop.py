@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-'handling with loops'
 import sys
 
 from mininet.log import setLogLevel, info

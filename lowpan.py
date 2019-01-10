@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example creates a simple network topology with 3 nodes'
-
 from mininet.log import setLogLevel, info
 from mn_wifi.cli import CLI_wifi
 from mn_wifi.net import Mininet_wifi

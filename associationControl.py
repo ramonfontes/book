@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'Setting mechanism to optimize the use of APs'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.cli import CLI_wifi

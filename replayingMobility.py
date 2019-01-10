@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'Replaying Mobility'
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.replaying import replayingMobility
@@ -19,11 +17,16 @@ def topology():
                        link=wmediumd, wmediumd_mode=interference)
 
     info("*** Creating nodes\n")
-    sta1 = net.addStation('sta1', mac='00:00:00:00:00:02', ip='10.0.0.1/8', speed=4)
-    sta2 = net.addStation('sta2', mac='00:00:00:00:00:03', ip='10.0.0.2/8', speed=6)
-    sta3 = net.addStation('sta3', mac='00:00:00:00:00:04', ip='10.0.0.3/8', speed=3)
-    sta4 = net.addStation('sta4', mac='00:00:00:00:00:05', ip='10.0.0.4/8', speed=3)
-    ap1 = net.addAccessPoint('ap1', ssid='new-ssid', mode='g', channel='1',
+    sta1 = net.addStation('sta1', mac='00:00:00:00:00:02',
+                          ip='10.0.0.1/8', speed=4)
+    sta2 = net.addStation('sta2', mac='00:00:00:00:00:03',
+                          ip='10.0.0.2/8', speed=6)
+    sta3 = net.addStation('sta3', mac='00:00:00:00:00:04',
+                          ip='10.0.0.3/8', speed=3)
+    sta4 = net.addStation('sta4', mac='00:00:00:00:00:05',
+                          ip='10.0.0.4/8', speed=3)
+    ap1 = net.addAccessPoint('ap1', ssid='new-ssid',
+                             mode='g', channel='1',
                              position='45,45,0')
     c1 = net.addController('c1', controller=Controller)
 
@@ -36,9 +39,6 @@ def topology():
     info("*** Creating links\n")
     net.addLink(sta3, cls=adhoc, ssid='adhocNet')
     net.addLink(sta4, cls=adhoc, ssid='adhocNet')
-
-    'ploting graph'
-    #net.plotGraph(max_x=200, max_y=200)
 
     path = os.path.dirname(os.path.abspath(__file__))
     getTrace(sta1, '%s/replayingMobility/node1.dat' % path)

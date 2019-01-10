@@ -1,8 +1,5 @@
 #!/usr/bin/python
 
-"""This code tests if APs are affected by CVE-2017-13082 (KRACK attack) and
-determine whether an implementation is vulnerable to attacks."""
-
 __author__ = "Ramon Fontes, Hedertone Almeida, and Christian Rothenberg"
 __credits__ = ["https://github.com/vanhoefm/krackattacks-test-ap-ft"]
 
@@ -28,7 +25,6 @@ def topology():
 
     info("*** Creating nodes\n")
     net.addStation('sta1', ip='10.0.0.1/8', position='20,0,0', inNamespace=False)
-    #net.addStation('sta2', ip='10.0.0.2/8', position='-50,-50,0', inNamespace=True)
     ap1 = net.addAccessPoint('ap1', ip='10.0.0.101/8', mac='02:00:00:00:00:01',
                              ssid="handover", mode="g", channel="1", ieee80211r='yes',
                              mobility_domain='a1b2', passwd='123456789a', encrypt='wpa2',

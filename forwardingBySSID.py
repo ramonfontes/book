@@ -1,25 +1,5 @@
 #!/usr/bin/python
 
-"""
-Before running this script please stop network-manager:
-service network-manager stop
-This example shows how to create multiple SSID at the same AP and ideas
-around SSID-based packet forwarding
-            --------
-             ssid-4
-            --------
-               |
-               |
-  ------      (5)     -------
-  ssid-1---(2)ap1(4)---ssid-3
-  ------      (3)     -------
-               |
-               |
-            --------
-             ssid-2
-            --------
-"""
-
 from mn_wifi.net import Mininet_wifi
 from mn_wifi.node import OVSAP
 from mn_wifi.cli import CLI_wifi
@@ -60,11 +40,16 @@ def topology():
     sta4.setRange(15)
     sta5.setRange(15)
 
-    sta1.cmd('iwconfig sta1-wlan0 essid %s ap %s' % (ap1.params['ssid'][1], ap1.params['mac'][1]))
-    sta2.cmd('iwconfig sta2-wlan0 essid %s ap %s' % (ap1.params['ssid'][2], ap1.params['mac'][2]))
-    sta3.cmd('iwconfig sta3-wlan0 essid %s ap %s' % (ap1.params['ssid'][2], ap1.params['mac'][2]))
-    sta4.cmd('iwconfig sta4-wlan0 essid %s ap %s' % (ap1.params['ssid'][3], ap1.params['mac'][3]))
-    sta5.cmd('iwconfig sta5-wlan0 essid %s ap %s' % (ap1.params['ssid'][4], ap1.params['mac'][4]))
+    sta1.cmd('iwconfig sta1-wlan0 essid %s ap %s' %
+             (ap1.params['ssid'][1], ap1.params['mac'][1]))
+    sta2.cmd('iwconfig sta2-wlan0 essid %s ap %s' %
+             (ap1.params['ssid'][2], ap1.params['mac'][2]))
+    sta3.cmd('iwconfig sta3-wlan0 essid %s ap %s' %
+             (ap1.params['ssid'][2], ap1.params['mac'][2]))
+    sta4.cmd('iwconfig sta4-wlan0 essid %s ap %s' %
+             (ap1.params['ssid'][3], ap1.params['mac'][3]))
+    sta5.cmd('iwconfig sta5-wlan0 essid %s ap %s' %
+             (ap1.params['ssid'][4], ap1.params['mac'][4]))
 
     ap1.cmd('ovs-ofctl add-flow ap1 in_port=2,actions=3')
     ap1.cmd('ovs-ofctl add-flow ap1 in_port=3,actions=2')

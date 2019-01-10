@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-'This example shows how to create multiple interfaces in stations'
-
 from __future__ import print_function
 from mininet.log import setLogLevel, info
 from mn_wifi.cli import CLI_wifi
@@ -14,8 +12,8 @@ def topology():
     net = Mininet_wifi()
 
     info("*** Creating nodes\n")
-    sta1 = net.addStation('sta1', wlans=2)  # 3 wlan added
-    sta2 = net.addStation('sta2')  # 1 wlan added
+    sta1 = net.addStation('sta1', wlans=2)
+    sta2 = net.addStation('sta2')
     ap1 = net.addAccessPoint('ap1', ssid='ssid_1', mode='g', channel='5',
                              failMode="standalone")
 

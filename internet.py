@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-"Setting the position of Nodes with wmediumd to calculate the interference"
-
 from mininet.node import Controller
 from mininet.log import setLogLevel, info
 from mn_wifi.node import OVSKernelAP
@@ -15,8 +13,9 @@ def topology():
     net = Mininet_wifi(controller=Controller)
 
     info("*** Creating nodes\n")
-    ap1 = net.addAccessPoint('ap1', ssid='new-ssid', mode='g', channel='1', position='10,10,0')
-    sta1 = net.addStation('sta1', position='10,20,0')
+    ap1 = net.addAccessPoint('ap1', ssid='new-ssid', mode='g',
+                             channel='1', position='10,10,0')
+    net.addStation('sta1', position='10,20,0')
     c1 = net.addController('c1', controller=Controller)
 
     info("*** Configuring wifi nodes\n")
